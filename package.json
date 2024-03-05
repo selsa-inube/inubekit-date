@@ -37,7 +37,9 @@
     "@inubekit/foundations": "^2.5.0",
     "@inubekit/icon": "^1.2.0",
     "@inubekit/label": "^2.1.0",
-    "@inubekit/text": "^2.1.0",
+    "@inubekit/text": "^2.1.0"
+  },
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
