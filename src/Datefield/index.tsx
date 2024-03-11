@@ -52,15 +52,39 @@ const Datefield = (props: IDatefield) => {
 
   const interceptFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFocused(true);
-    if (typeof onFocus === "function") {
-      onFocus(e);
+    try {
+      onFocus && onFocus(e);
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
     }
   };
 
   const interceptBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFocused(false);
-    if (typeof onBlur === "function") {
-      onBlur(e);
+    try {
+      onBlur && onBlur(e);
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
+    }
+  };
+
+  const interceptOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    try {
+      onChange && onChange(e);
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
     }
   };
 
@@ -89,7 +113,7 @@ const Datefield = (props: IDatefield) => {
           <Text
             type="body"
             size="small"
-            appearance="dark"
+            appearance="danger"
             margin="0px 0px 0px 4px"
             textAlign={"center"}
           >
@@ -108,35 +132,30 @@ const Datefield = (props: IDatefield) => {
           name={name}
           id={id}
           disabled={disabled}
-          type={"date"}
+          type="date"
           value={value}
           $required={required}
           $size={size}
           $status={status}
           $fullwidth={fullwidth}
           $focused={focused}
-          onChange={onChange}
+          onChange={interceptOnChange}
           onFocus={interceptFocus}
           onBlur={interceptBlur}
         />
       </StyledInputContainer>
 
-      {status === "invalid" && !disabled && (
-        <StyledMessageContainer $disabled={disabled} $status={status}>
-          <Icon
-            appearance="danger"
-            disabled={disabled}
-            icon={<MdOutlineWarning />}
-          />
+      {status === "invalid" && !disabled && message && (
+        <StyledMessageContainer>
+          <Icon appearance="danger" icon={<MdOutlineWarning />} />
           <Text
             type="body"
             size="small"
             textAlign="start"
             margin="8px 0px 0px 4px"
             appearance="danger"
-            disabled={disabled}
           >
-            {message && `${message}`}
+            {message}
           </Text>
         </StyledMessageContainer>
       )}

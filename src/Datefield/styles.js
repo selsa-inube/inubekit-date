@@ -1,9 +1,5 @@
 import styled from "styled-components";
-
 import { inube } from "@inubekit/foundations";
-
-const $setBackgroundColor = ({ $readOnly }) =>
-  $readOnly && inube.label.content.color.regular;
 
 const StyledContainer = styled.div`
   cursor: ${({ $disabled }) => $disabled && "not-allowed"};
@@ -23,50 +19,34 @@ const StyledInputContainer = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 0;
   pointer-events: ${({ $disabled }) => $disabled && "none"};
   opacity: ${({ $disabled }) => $disabled && "0.5"};
-  background-color: ${$setBackgroundColor};
-  grid-template-columns: ${({ $iconBefore, $iconAfter }) => {
-    if ($iconBefore && $iconAfter) {
-      return "auto 1fr auto";
-    }
-
-    if ($iconBefore && !$iconAfter) {
-      return "auto 1fr";
-    }
-
-    if (!$iconBefore && $iconAfter) {
-      return "1fr auto";
-    }
-
-    return "1fr";
-  }};
+  background-color:;
+  grid-template-columns: 1fr;
   border: 1px solid
     ${({ $disabled, $status, $focused, theme }) => {
       if ($disabled) {
         return (
-          theme?.label?.content?.color?.disabled ||
-          inube.label.content.color.disabled
+          theme?.input?.border?.color?.disabled ||
+          inube.input.border.color.disabled
         );
       }
 
       if ($status === "invalid") {
         return (
-          theme?.label?.content?.color?.invalid ||
-          inube.label.content.color.invalid
+          theme?.input?.border?.color?.invalid ||
+          inube.input.border.color.invalid
         );
       }
 
       if ($focused) {
         return (
-          theme?.label?.content?.color?.focus || inube.label.content.color.focus
+          theme?.input?.border?.color?.focus || inube.input.border.color.focus
         );
       }
       return (
-        theme?.label?.content?.color?.regular ||
-        inube.label.content.color.regular
+        theme?.input?.border?.color?.regular || inube.input.border.color.regular
       );
     }};
 `;
@@ -80,27 +60,27 @@ const StyledInput = styled.input`
   font-weight: ${inube.typography.body.large.weight};
   line-height: ${inube.typography.body.large.lineHeight};
   letter-spacing: ${inube.typography.body.large.tracking};
-  background-color: ${$setBackgroundColor};
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: ${({ theme }) =>
+    theme?.input?.background?.color?.disabled ||
+    inube.input.background.color.disabled};
   color: ${({ $disabled, theme }) =>
     $disabled
-      ? theme?.text?.gray?.content?.color?.disabled ||
-        inube.text.gray.content.color.disabled
-      : theme?.text?.dark?.content?.color?.regular ||
-        inube.text.dark.content.color.regular};
+      ? theme?.input?.content?.color?.disabled ||
+        inube.input.content.color.disabled
+      : theme?.input?.content?.color?.regular ||
+        inube.input.content.color.regular};
 
   width: ${({ $fullwidth }) => $fullwidth && "100%"};
   height: ${({ $size }) => ($size === "compact" ? "40px" : "48px")};
 
   border: none;
-  &[type="number"] {
-    appearance: textfield;
-    -webkit-appearance: textfield;
-    -moz-appearance: textfield;
-  }
+
   ::placeholder {
     color: ${({ theme }) =>
-      theme?.text?.gray?.content?.color?.regular ||
-      inube.text.gray.content.color.regular};
+      theme?.input?.content?.color?.regular ||
+      inube.input.content.color.regular};
   }
 
   &:focus {
@@ -108,11 +88,11 @@ const StyledInput = styled.input`
     border-width: 2px;
   }
 
-  &::-webkit-search-cancel-button {
-    display: none;
+  &::-webkit-calendar-picker-indicator {
+    cursor: ${({ $disabled }) => ($disabled ? "not-allowed" : "pointer")};
   }
 
-  &::-moz-search-cancel-button {
+  &::-moz-calendar-picker-indicator {
     display: none;
   }
 
@@ -128,29 +108,19 @@ const StyledInput = styled.input`
 `;
 
 const StyledMessageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
   pointer-events: none;
-  color: ${({ $disabled, $status, theme }) => {
-    if ($disabled) {
-      return (
-        theme?.text?.gray?.content?.color?.disabled ||
-        inube.text.gray.content.color.disabled
-      );
-    }
+  color: ${({ theme }) =>
+    theme?.input?.message?.color?.regular ||
+    inube.input.message.color.regular}};
 
-    if ($status === "valid") {
-      return (
-        theme?.text?.success?.content?.color?.regular ||
-        inube.text.success.content.color.regular
-      );
-    }
-
-    if ($status === "invalid") {
-      return (
-        theme?.text?.danger?.content?.color?.regular ||
-        inube.text.danger.content.color.regular
-      );
-    }
-  }};
+  & svg {
+    width: 14px;
+    height: 14px;
+    margin-top: 8px;
+  }
 `;
 
 export {
