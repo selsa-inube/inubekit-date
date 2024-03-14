@@ -112,8 +112,7 @@ const StyledMessageContainer = styled.div`
   margin-left: 16px;
   pointer-events: none;
   color: ${({ theme }) =>
-    theme?.input?.message?.color?.regular ||
-    inube.input.message.color.regular}};
+    theme?.input?.message?.color?.regular || inube.input.message.color.regular};
 
   & svg {
     width: 14px;
