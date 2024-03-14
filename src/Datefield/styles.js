@@ -22,7 +22,6 @@ const StyledInputContainer = styled.div`
   padding: 0;
   pointer-events: ${({ $disabled }) => $disabled && "none"};
   opacity: ${({ $disabled }) => $disabled && "0.5"};
-  background-color:;
   grid-template-columns: 1fr;
   border: 1px solid
     ${({ $disabled, $status, $focused, theme }) => {
@@ -63,8 +62,8 @@ const StyledInput = styled.input`
   padding-left: 16px;
   padding-right: 16px;
   background-color: ${({ theme }) =>
-    theme?.input?.background?.color?.disabled ||
-    inube.input.background.color.disabled};
+    theme?.input?.background?.color?.regular ||
+    inube.input.background.color.regular};
   color: ${({ $disabled, theme }) =>
     $disabled
       ? theme?.input?.content?.color?.disabled ||
@@ -72,7 +71,7 @@ const StyledInput = styled.input`
       : theme?.input?.content?.color?.regular ||
         inube.input.content.color.regular};
 
-  width: ${({ $fullwidth }) => $fullwidth && "100%"};
+  width: ${({ $fullwidth }) => $fullwidth && "auto"};
   height: ${({ $size }) => ($size === "compact" ? "40px" : "48px")};
 
   border: none;
