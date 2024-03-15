@@ -1,3 +1,19 @@
+# v1.0.0 (Fri Mar 15 2024)
+
+#### 💥 Breaking Change
+
+- Create repo and export component [#1](https://github.com/selsa-inube/inubekit-datefield/pull/1) ([@cmarin001](https://github.com/cmarin001))
+
+#### ⚠️ Pushed to `main`
+
+- Initial commit ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v0.0.1 (Wed Jan 17 2024)
 
 #### ⚠️ Pushed to `main`
