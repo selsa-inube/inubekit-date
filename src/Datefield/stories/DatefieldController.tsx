@@ -25,7 +25,7 @@ const DatefieldController = (props: IDatefield) => {
   const onBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     const isValid = isValidDate(e.target.value);
     console.log("isValid: ", isValid, e.target.value, typeof e.target.value);
-    setForm({ ...form, status: isValid ? "valid" : "invalid" });
+    setForm({ ...form, status: isValid ? "pending" : "invalid" });
   };
 
   const message = "the date is not valid.";
