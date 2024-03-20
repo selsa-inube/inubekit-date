@@ -5,7 +5,7 @@ import { Text } from "@inubekit/text";
 import { Label } from "@inubekit/label";
 import { Icon } from "@inubekit/icon";
 
-import { Size, Status } from "./props";
+import { IDatefieldSize, IDatefieldStatus } from "./props";
 import {
   StyledContainer,
   StyledContainerLabel,
@@ -22,9 +22,9 @@ interface IDatefield {
   value?: string | number;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
-  status?: Status;
+  status?: IDatefieldStatus;
   message?: string;
-  size?: Size;
+  size?: IDatefieldSize;
   fullwidth?: boolean;
   onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
