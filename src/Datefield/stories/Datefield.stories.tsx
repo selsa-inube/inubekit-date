@@ -9,7 +9,7 @@ const story = {
   argTypes: props,
 };
 
-export const Default = (args: IDatefield) => <DatefieldController {...args} />;
+const Default = (args: IDatefield) => <DatefieldController {...args} />;
 Default.args = {
   label: "Date",
   name: "Date",
@@ -22,4 +22,5 @@ Default.args = {
   fullwidth: false,
 };
 
+export { Default };
 export default story;
