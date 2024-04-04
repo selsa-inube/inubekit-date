@@ -1,3 +1,19 @@
+# v2.1.1 (Thu Apr 04 2024)
+
+#### 🐛 Bug Fix
+
+- Add auto publish [#8](https://github.com/selsa-inube/inubekit-datefield/pull/8) ([@cmarin001](https://github.com/cmarin001))
+
+#### 📝 Documentation
+
+- Publish new version 2.1.0 [#7](https://github.com/selsa-inube/inubekit-datefield/pull/7) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v2.1.0 (Fri Mar 22 2024)
 
 #### 🚀 Enhancement
