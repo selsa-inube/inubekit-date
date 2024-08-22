@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { MdOutlineWarning } from "react-icons/md";
 
-import { Text } from "@inubekit/text";
+import { ITextAppearance, Text } from "@inubekit/text";
 import { Label } from "@inubekit/label";
 import { Icon } from "@inubekit/icon";
 
@@ -13,6 +13,8 @@ import {
   StyledInput,
   StyledMessageContainer,
 } from "./styles";
+import { ThemeContext } from "styled-components";
+import { inube } from "@inubekit/foundations";
 
 interface IDatefield {
   label?: string;
@@ -55,11 +57,7 @@ const Datefield = (props: IDatefield) => {
     try {
       onFocus && onFocus(e);
     } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      } else {
-        throw new Error("An unknown error occurred");
-      }
+      console.error(`Error executing focus callback. ${error}`);
     }
   };
 
@@ -68,11 +66,7 @@ const Datefield = (props: IDatefield) => {
     try {
       onBlur && onBlur(e);
     } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      } else {
-        throw new Error("An unknown error occurred");
-      }
+      console.error(`Error executing blur callback. ${error}`);
     }
   };
 
@@ -80,13 +74,17 @@ const Datefield = (props: IDatefield) => {
     try {
       onChange && onChange(e);
     } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      } else {
-        throw new Error("An unknown error occurred");
-      }
+      console.error(`Error when changing value using callback. ${error}`);
     }
   };
+
+  const theme: typeof inube = useContext(ThemeContext);
+  const requiredAppearance =
+    (theme?.input?.required?.appearance as ITextAppearance) ||
+    inube.input.required.appearance;
+  const messageAppearance =
+    (theme?.input?.message?.appearance as ITextAppearance) ||
+    inube.input.message.appearance;
 
   return (
     <StyledContainer $fullwidth={fullwidth} $disabled={disabled} $size={size}>
@@ -113,7 +111,7 @@ const Datefield = (props: IDatefield) => {
           <Text
             type="body"
             size="small"
-            appearance="danger"
+            appearance={requiredAppearance}
             margin="0px 0px 0px 4px"
             textAlign={"center"}
           >
@@ -147,13 +145,13 @@ const Datefield = (props: IDatefield) => {
 
       {status === "invalid" && !disabled && message && (
         <StyledMessageContainer>
-          <Icon appearance="danger" icon={<MdOutlineWarning />} />
+          <Icon appearance={messageAppearance} icon={<MdOutlineWarning />} />
           <Text
             type="body"
             size="small"
             textAlign="start"
             margin="8px 0px 0px 4px"
-            appearance="danger"
+            appearance={messageAppearance}
           >
             {message}
           </Text>
