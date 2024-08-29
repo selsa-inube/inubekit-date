@@ -1,3 +1,15 @@
+# v2.21.0 (Thu Aug 29 2024)
+
+#### 🚀 Enhancement
+
+- Auto-merge PR [#29](https://github.com/selsa-inube/inubekit-datefield/pull/29) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v2.20.0 (Thu Aug 29 2024)
 
 #### 🚀 Enhancement
