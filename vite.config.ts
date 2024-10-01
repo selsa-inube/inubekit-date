@@ -22,6 +22,7 @@ export default defineConfig({
         "@inubekit/icon",
         "@inubekit/label",
         "@inubekit/text",
+        "@inubekit/input",
       ],
       output: {
         globals: {

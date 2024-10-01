@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { inube } from "@inubekit/foundations";
+import { InputTokens } from "@inubekit/input";
 
 const StyledContainer = styled.div`
   cursor: ${({ $disabled }) => $disabled && "not-allowed"};
@@ -28,24 +29,24 @@ const StyledInputContainer = styled.div`
       if ($disabled) {
         return (
           theme?.input?.border?.color?.disabled ||
-          inube.input.border.color.disabled
+          InputTokens.border.color.disabled
         );
       }
 
       if ($status === "invalid") {
         return (
           theme?.input?.border?.color?.invalid ||
-          inube.input.border.color.invalid
+          InputTokens.border.color.invalid
         );
       }
 
       if ($focused) {
         return (
-          theme?.input?.border?.color?.focus || inube.input.border.color.focus
+          theme?.input?.border?.color?.focus || InputTokens.border.color.focus
         );
       }
       return (
-        theme?.input?.border?.color?.regular || inube.input.border.color.regular
+        theme?.input?.border?.color?.regular || InputTokens.border.color.regular
       );
     }};
 `;
@@ -63,13 +64,13 @@ const StyledInput = styled.input`
   padding-right: 16px;
   background-color: ${({ theme }) =>
     theme?.input?.background?.color?.regular ||
-    inube.input.background.color.regular};
+    InputTokens.background.color.regular};
   color: ${({ $disabled, theme }) =>
     $disabled
       ? theme?.input?.content?.color?.disabled ||
-        inube.input.content.color.disabled
+        InputTokens.content.color.disabled
       : theme?.input?.content?.color?.regular ||
-        inube.input.content.color.regular};
+        InputTokens.content.color.regular};
 
   width: ${({ $fullwidth }) => $fullwidth && "auto"};
   height: ${({ $size }) => ($size === "compact" ? "40px" : "48px")};
@@ -79,7 +80,7 @@ const StyledInput = styled.input`
   ::placeholder {
     color: ${({ theme }) =>
       theme?.input?.content?.color?.regular ||
-      inube.input.content.color.regular};
+      InputTokens.content.color.regular};
   }
 
   &:focus {
