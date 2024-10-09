@@ -41,10 +41,10 @@
   },
   "dependencies": {
     "@inubekit/foundations": "^5.11.3",
-    "@inubekit/icon": "^2.17.0",
+    "@inubekit/icon": "^2.18.0",
+    "@inubekit/input": "^1.6.3",
     "@inubekit/label": "^2.6.0",
-    "@inubekit/text": "^2.17.0",
-    "@inubekit/input": "^1.6.3"
+    "@inubekit/text": "^2.17.0"
   },
   "peerDependencies": {
     "react": "^18.2.0",
