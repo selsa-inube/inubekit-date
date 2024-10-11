@@ -1,3 +1,15 @@
+# v2.39.1 (Fri Oct 11 2024)
+
+#### ⚠️ Pushed to `main`
+
+- fix: adjustment in order to rename it according to new directive ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v2.39.0 (Thu Oct 10 2024)
 
 #### 🚀 Enhancement
