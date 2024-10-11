@@ -1,15 +1,15 @@
 import { props, parameters } from "../props";
-import { Datefield, IDatefield } from "..";
-import { DatefieldController } from "./DatefieldController";
+import { Date, IDate } from "..";
+import { DateController } from "./DateController";
 
 const story = {
-  title: "inputs/Datefield",
-  components: [Datefield],
+  title: "inputs/Date",
+  components: [Date],
   parameters,
   argTypes: props,
 };
 
-const Default = (args: IDatefield) => <DatefieldController {...args} />;
+const Default = (args: IDate) => <DateController {...args} />;
 Default.args = {
   label: "Date",
   name: "Date",

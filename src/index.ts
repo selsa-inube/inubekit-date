@@ -1,3 +1,3 @@
-export { Datefield } from "./Datefield";
-export type { IDatefield } from "./Datefield";
-export type { IDatefieldSize, IDatefieldStatus } from "./Datefield/props";
+export { Date } from "./Date";
+export type { IDate } from "./Date";
+export type { IDateSize, IDateStatus } from "./Date/props";

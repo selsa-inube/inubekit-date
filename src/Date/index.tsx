@@ -5,7 +5,7 @@ import { ITextAppearance, Text } from "@inubekit/text";
 import { Label } from "@inubekit/label";
 import { Icon } from "@inubekit/icon";
 
-import { IDatefieldSize, IDatefieldStatus } from "./props";
+import { IDateSize, IDateStatus } from "./props";
 import {
   StyledContainer,
   StyledContainerLabel,
@@ -16,7 +16,7 @@ import {
 import { ThemeContext } from "styled-components";
 import { InputTokens } from "@inubekit/input";
 
-interface IDatefield {
+interface IDate {
   label?: string;
   name?: string;
   id: string;
@@ -24,16 +24,16 @@ interface IDatefield {
   value?: string | number;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
-  status?: IDatefieldStatus;
+  status?: IDateStatus;
   message?: string;
-  size?: IDatefieldSize;
+  size?: IDateSize;
   fullwidth?: boolean;
   onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   focused?: boolean;
 }
 
-const Datefield = (props: IDatefield) => {
+const Date = (props: IDate) => {
   const {
     label,
     name,
@@ -161,5 +161,5 @@ const Datefield = (props: IDatefield) => {
   );
 };
 
-export { Datefield };
-export type { IDatefield };
+export { Date };
+export type { IDate };

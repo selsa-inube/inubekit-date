@@ -1,5 +1,5 @@
 {
-  "name": "@inubekit/datefield",
+  "name": "@inubekit/date",
   "homepage": "https://inubeds.vercel.app/",
   "author": "inube",
   "main": "dist/index.es.js",
@@ -86,7 +86,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/selsa-inube/inubekit-datefield.git"
+    "url": "git+https://github.com/selsa-inube/inubekit-date.git"
   },
   "auto": {
     "plugins": [

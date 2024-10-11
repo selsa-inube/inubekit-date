@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import { Datefield, IDatefield } from "..";
+import { Date, IDate } from "..";
 
-const DatefieldController = (props: IDatefield) => {
+const DateController = (props: IDate) => {
   const { value = "", status = "pending" } = props;
   const [form, setForm] = useState({ value, status });
 
@@ -31,7 +31,7 @@ const DatefieldController = (props: IDatefield) => {
   const message = "the date is not valid.";
 
   return (
-    <Datefield
+    <Date
       {...props}
       value={form.value}
       onChange={onChange}
@@ -43,4 +43,4 @@ const DatefieldController = (props: IDatefield) => {
   );
 };
 
-export { DatefieldController };
+export { DateController };

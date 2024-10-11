@@ -1,8 +1,8 @@
 const sizes = ["wide", "compact"] as const;
-type IDatefieldSize = (typeof sizes)[number];
+type IDateSize = (typeof sizes)[number];
 
 const status = ["invalid", "pending"] as const;
-type IDatefieldStatus = (typeof status)[number];
+type IDateStatus = (typeof status)[number];
 
 const parameters = {
   docs: {
@@ -71,4 +71,4 @@ const props = {
 };
 
 export { parameters, props, sizes, status };
-export type { IDatefieldSize, IDatefieldStatus };
+export type { IDateSize, IDateStatus };
